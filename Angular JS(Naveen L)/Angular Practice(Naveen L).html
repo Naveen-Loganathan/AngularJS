@@ -1,0 +1,357 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<html ng-app="Module">
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Angular%20Practice(Naveen%20L).js"></script>
+    <link href="StyleSheet(table).css" rel="stylesheet" />
+    
+</head>
+<body ng-controller="Controller">
+    <div><b>Introduction to Angular JS:</b></div><br/>
+    <div> {{1==2}} </div>
+    <div> {{1==1}}</div>
+    <div>10+20={{10+20}} </div>
+    <div> 40+50={{40+50}}</div>
+    <div> {{{name:'Naveen',age:'30'}.name}} </div>
+    <div> {{['Naveen','Vijay','Subash'][1]}}</div>
+    <hr /><br />
+    <div><b>Angular modules and controllers:</b></div><br/>
+    <div> {{message}}</div>
+    <div>{{message}}</div>
+    <hr /><br />
+    <div><b>Controllers in AngularJS:</b></div><br/>
+    <div>
+        First Name : {{employee.firstname}}
+    </div>
+    <div>
+        Last Name : {{employee.lastname}}
+    </div>
+    <div>
+        Gender : {{employee.gender}}
+    </div>
+    <hr /><br />
+    <div>
+        <img src="https://imgk.timesnownews.com/story/main_indian_flag_iStock-1194408359.jpg?tr=w-400,h-300,fo-auto" style="height:100px;width:100px"></img>
+    </div>
+    <hr /><br />
+    <div><b>AngularJS ng src directive:</b></div><br/>
+    <div>
+        Country : {{ country.name }}
+    </div>
+    <div>
+        Capital : {{ country.capital }}
+    </div>
+    <div>
+        <img ng-src="{{country.flag}}"
+        alt="{{ country.name + ' Flag' }}"
+        style="height:100px; width:200px" />
+    </div>
+    <hr /><br />
+    <div><b>Two way databinding in AngularJS</b></div><br/>
+    <div>
+        <input type="text" ng-model="message1"/>
+        <br/> <br/>
+        {{message1}}
+    </div>
+    <br/><br/>
+    <div>
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" ng-model="employee.firstname"/></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+              
+                <td><input type="text" ng-model="employee.lastname" /></td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+              <td><input type="text" ng-model="employee.gender" /></td>
+            </tr>
+        </table>
+        <br/>
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td>{{employee.firstname}}</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+              
+                <td>{{employee.lastname}}</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>{{employee.gender}}</td>
+            </tr>
+        </table>
+    </div>
+    <hr/><br/>
+    <div><b>AngularJS repeat directive:</b></div><br/>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td>{{employee.firstname}}</td>
+                    <td>{{employee.lastname}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{emloyee.salary}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+    <div><b>Display Countries and its Cities:</b></div><br/>
+    <div>
+        <ul>
+            <li ng-repeat="country in countries">
+                {{country.name}} - Index = {{$index}}
+                <ul>
+                    <li ng-repeat="city in country.cities">
+                        {{city.name}} - Parent Index = {{$parent.$index}}, Index - {{$index}}
+                    </li>
+                    </ul>
+            </li> 
+            </ul>
+</div>
+    <hr /><br />
+    <div><b>Handling button events in AngularJS</b></div><br/>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Likes</th>
+                    <th>Dislikes</th>
+                    <th>Like/Dislike</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="technology in technologies">
+                    <td>{{technology.name}}</td>
+                    <td>{{technology.likes}}</td>
+                    <td>{{technology.dislikes}}</td>
+                    <td>
+                        <input type="button" value="Like" ng-click="increamentlikes(technolgy)" >
+                        <input type="button" value="Like" ng-click="increamentdislikes(technolgy)"> 
+                     </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+    <div><b>Filtering Data using Angular JS Filters:</b></div><br/>
+    <div>
+           <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary(number)</th>
+                    <th>Salary(currency)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee">
+                    <td>{{employee.name | uppercase}}</td>
+                    <td>{{employee.dateofbirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{employee.gender | lowercase}}</td>
+                    <td>{{employee.salary | number:2}}</td>
+                    <td>{{employee.salary | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br/>
+    <div><b>Setting limt to Display Rows:</b></div><br/>
+    <div>
+        Rows to Display : <input type="number" step="1" min="0" max="=5" ng-model="rowlimit" />
+        <br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary(number)</th>
+                    <th>Salary(currency)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee | limitTo:rowlimit">
+                    <td>{{employee.name | uppercase}}</td>
+                    <td>{{employee.dateofbirth | date:"dd/MM/yyyy"}}</td>
+                    <td>{{employee.gender | lowercase}}</td>
+                    <td>{{employee.salary | number:2}}</td>
+                    <td>{{employee.salary | currency}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+   
+        <div><b>Sorting Data in Angular JS:</b></div><br />
+    <div>
+        Order By :<select ng-model="sortcolumn">
+            <option value="name">Name Asc</option>
+            <option value="gender">Gender Asc</option>
+            <option value="dateofbirth">Date of Birth Asc</option>
+            <option value="salary">Salary Asc</option>
+        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary(number)</th>
+                    <th>Salary(currency)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee | orderBy:sortcolumn">
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.dateofbirth}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.salary}}</td>
+                    <td>{{employee.salary}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr/><br />
+    <div><b></b>AngularJS sort rows by table header:</div><br />
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th ng-click="sortData('name')">Name <div ng-class="getSortClass('name')"></div></th>
+                    <th ng-click="sortData('dateofbirth')">
+                        Date of Birth <div ng-class="getSortClass('dateOfBirth')"></div>
+                    </th>
+                    <th ng-click="sortData('gender')">
+                        Gender <div ng-class="getSortClass('gender')"></div>
+                    </th>
+                    <th ng-click="sortData('salary')">
+                        Salary <div ng-class="getSortClass('salary')"></div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee | orderBy:sortColumn1:reverseSort">
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.dateofbirth}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.salary}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+    <div><b></b>Search Filter in Angular JS:</div><br />
+    <div>
+        Search : <input type="text" ng-model="searchText" placeholder="Search employees" />
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee1 | filter:searchText">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.salary  }} </td>
+                    <td> {{ employee.city  }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+    <div><b></b>Filter Multiple Properties Angular JS:</div><br />
+    <div>
+      <input type="text1" ng-model="searchText1" placeholder="Search city & name" />
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee1 | filter:search">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.salary  }} </td>
+                    <td> {{ employee.city  }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+    <div><b></b>Searching by Exact Match:</div><br />
+    <div>
+        <input type="text2" ng-model="searchText2.name" placeholder="Search name" />
+        <input type="text2" ng-model="searchText2.city" placeholder="Search city" />
+        <input type="checkbox" ng-model="exactMatch"/>Exact Match
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee1 | filter:searchText2:exactMatch">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.salary  }} </td>
+                    <td> {{ employee.city  }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+    <div><b></b>Create a custom filter in AngularJS:</div><br />
+    <div>
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee2">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender}} </td>
+                    <td> {{ employee.salary  }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

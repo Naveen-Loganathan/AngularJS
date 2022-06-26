@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html ng-app="Modules">
+<head>
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/Angular%20Practice1(Naveen.L).js"></script>
+    <link href="StyleSheet(table).css" rel="stylesheet" />
+</head>
+<body ng-controller="Controllers">
+    <div><b></b>ng Hide in Angular JS:</div><br />
+    <div>
+        <input type="checkbox" ng-model="hidesalary"/>Hide Salary(using ng-hide)
+        <br /><br />
+         <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th ng-hide="hidesalary">Salary</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.city  }} </td>
+                    <td ng-hide="hidesalary"> {{ employee.salary  }} </td>
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+    <div><b></b>ng Show in Angular JS:</div><br />
+    <div>
+        <input type="checkbox" ng-model="hidesalary1" />Hide Salary(ng-show)
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th ng-show="!hidesalary1">Salary</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.city  }} </td>
+                    <td ng-show="!hidesalary1"> {{ employee.salary  }} </td>
+                   
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+    <div><b></b>ng Show andng Hide in Angular JS:</div><br />
+    <div>
+        <input type="checkbox" ng-model="hidesalary2" />Hide Salary
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th ng-hide="hidesalary2">Salary</th>
+                    
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td>{{employee.city}}</td>
+                    <td ng-hide="hidesalary2"> {{ employee.salary  }} </td>
+                    <td ng-show="hidesalary2">####</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <hr /><br />
+    <div><b></b>ng init directive in Angular JS:</div><br />
+    <div ng-app>
+    <div ng-init="tblemployee = [
+                 { name: 'naveen', gender: 'Male' ,city: 'Erode' },
+                 { name: 'Krishna' , gender: 'Male' , city: 'Chennai' },
+                 { name: 'Vinoth' , gender: 'Male' , city: 'Madurai' },
+                 { name: 'Ganesh' , gender: 'Male' , city: 'Karur' },
+                 { name: Vijay' , gender: 'Male' , city: 'Nammakkal' }
+         ]">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in tblemployee">
+                    <td>{{employee.name}}</td>
+                    <td>{{employee.gender}}</td>
+                    <td>{{employee.city}}</td>
+                </tr>
+            </tbody>
+        </table>
+         </div>
+        </div>
+    <hr /><br />
+    <div><b></b>ng include directive in Angular JS:</div><br />
+    <div ng-include="'EmployeeTable(include dire).html'"></div>
+    <br /><div><b></b>ng include Another Method:</div><br />
+    <select ng-model="employeeview">
+        <option value="EmployeeTable(include dire).html">Table</option>
+        <option value="EmployeeList(include dire).html">List</option>
+    </select>
+    <br /><br/>
+    <div ng-include="employeeview"></div>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+E:\Naveen\Angular JS(Naveen L)\Angular JS(Naveen L)\bin\Angular JS(Naveen L).dll.config
+E:\Naveen\Angular JS(Naveen L)\Angular JS(Naveen L)\bin\Angular JS(Naveen L).dll
+E:\Naveen\Angular JS(Naveen L)\Angular JS(Naveen L)\bin\Angular JS(Naveen L).pdb
+E:\Naveen\Angular JS(Naveen L)\Angular JS(Naveen L)\obj\Debug\Angular JS(Naveen L).csprojResolveAssemblyReference.cache
+E:\Naveen\Angular JS(Naveen L)\Angular JS(Naveen L)\obj\Debug\Angular JS(Naveen L).dll
+E:\Naveen\Angular JS(Naveen L)\Angular JS(Naveen L)\obj\Debug\Angular JS(Naveen L).pdb
